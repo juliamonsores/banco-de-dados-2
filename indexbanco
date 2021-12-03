@@ -1,0 +1,40 @@
+create database dever; 
+use dever;
+
+create table clientes (
+id int auto_increment,
+nome varchar (20) not null, 
+SobreNome varchar (30) null, 
+dataNasci date not null,
+idade integer not null,
+cpg integer not null,
+sexo varchar (10) null,
+primary key (id) );
+
+alter table clientes 
+add column Salario Float Not null;
+
+insert into clientes values 
+('1','Julia', 'Monsores','2003-10-15','17','00000000','feminino','200'),
+('2','lisa','Madruga','2020-06-02','1','00000000', 'feminimo','3000'),
+('3','bart','Madruga','2020-06-02','1','00000000','masculino','2300'),
+('4','fiu','fiufiu','2020-01-15','2','00000000','masculino','1220');
+select * from clientes;
+
+describe clientes; 
+
+select id,nome,idade from clientes;
+
+
+UPDATE clientes
+SET salario= '1300'
+WHERE salario='1220'; 
+
+SET sql_safe_updates=0;
+
+select salario,idade from clientes  where id=1;
+
+delete from clientes
+where id=4;
+
+drop table clientes;
